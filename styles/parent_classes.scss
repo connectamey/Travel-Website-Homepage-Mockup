@@ -1,0 +1,22 @@
+//variable 1
+$button-color: #4568E0;
+$unviersal-font-family:'Poppins';
+.button_parent
+{
+  font-family: $unviersal-font-family;
+  background-color: $button-color;
+  border: $button-color;
+  color: white;
+  cursor: pointer;
+}
+
+.blog_section_image_title_parent {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+ }
+
+ .blog_section_image_title_parent a:-webkit-any-link{
+color: white;
+text-decoration: none;
+ }

@@ -1,0 +1,88 @@
+
+    // Assignment 4
+    // Title: Add layout for Assignment 3 web page as per the mock image and convert all CSS to SCSS syntax.
+    // Author: Amey Bansod
+    // NEUID: 002743117
+    // Description: Learn CSS positioning, Grid layout / Flexbox, SCSS features like variables, mixins, inheritance, loops, functions, math operations, etc.
+    // Date Created: 10 / 03 / 2022
+    // Last Modified: 10 / 04 / 2022
+
+    // Page: SCSS Footer Layout File
+
+
+@use 'parent_classes.scss';
+
+//SCSS loop
+$bgColours: (#E1E8F8);
+
+@each $i in $bgColours { 
+  .footer_section {
+            background-color: $i;
+    }
+}
+
+.footer_section {
+  display: flex;
+  text-align: center;
+  width: auto;
+  height: 50px;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-self: center;
+  font-size: small;
+}
+
+
+.footer_column {
+  padding: 10px;
+  height: auto;
+}
+
+
+.fleft {
+
+  width: 30%;
+}
+
+.fright
+{
+
+  width: 20%;
+}
+
+.fmiddle {
+
+  text-align: center;
+  width: 50%;
+}
+
+ .footernav {
+  text-align: center;
+  font-size: small;
+  overflow: hidden;
+}
+ .footernav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footernav a {
+ 
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+
+
+.socialiconcolumn {
+  display: inline;
+}
+.socialiconcolumn img {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}

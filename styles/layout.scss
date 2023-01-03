@@ -1,0 +1,570 @@
+
+    // Assignment 4
+    // Title: Add layout for Assignment 3 web page as per the mock image and convert all CSS to SCSS syntax.
+    // Author: Amey Bansod
+    // NEUID: 002743117
+    // Description: Learn CSS positioning, Grid layout / Flexbox, SCSS features like variables, mixins, inheritance, loops, functions, math operations, etc.
+    // Date Created: 10 / 03 / 2022
+    // Last Modified: 10 / 04 / 2022
+
+    // Page: SCSS Layout File
+
+
+@use 'variables';
+@use 'parent_classes';
+
+//variable 2
+$universal_margin:30px;
+
+//variable 3
+$universal_border_radius:15px;
+
+//variable 4
+$invalid-input-background-color:#fffff0;
+
+
+//mixin 1 Recommended Destination Menu Border   border-bottom:2px solid #ccc;
+@mixin bordered($rd_tabs_border_color, $rd_tabs_border_width_px_2) {
+  border-bottom: $rd_tabs_border_width_px_2 solid $rd_tabs_border_color;
+}
+
+
+// Main body Style
+body {
+  margin: 0;
+  font-family: 'Poppins';
+  font-size: 22px;
+  overflow-x: hidden;
+  }
+  
+
+  
+  a{
+    color:#163235;
+  }
+  
+  .Panel {
+    width: 100%;
+    max-width: 850px;
+    margin: $universal_margin auto;
+  }
+    .Panel__body {
+      background-color: #f2f2f2;
+      padding: 10px 20px;
+    }
+  
+  .Tabs {
+    position: relative;
+    background-color: #fff;
+    @include bordered(#ccc, 2px);
+  }
+  // Recommended Destination Menu Tabs
+  .Tabs:after {
+      content: ' ';
+      display: table;
+      clear: both;
+    }
+  
+  .Tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  
+  
+  .Tabs__tab {
+  
+      float: left;
+      width: 25%;
+      text-align: center;
+    }
+  
+  .Tabs__tab:first-child.active ~ .Tabs__presentation-slider {
+        transform: translateX(0) scaleX(0.25);
+      }
+  
+  .Tabs__tab:nth-child(2).active ~ .Tabs__presentation-slider {
+        transform: translateX(25%) scaleX(0.25);
+      }
+  
+  .Tabs__tab:nth-child(3).active ~ .Tabs__presentation-slider {
+        transform: translateX(calc(25% * 2)) scaleX(0.25);
+      }
+  
+  .Tabs__presentation-slider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #163235;
+      transform-origin: 0 0;
+      transition: transform .25s;
+    }
+  
+  
+  
+  .Tab > a {
+      font-size: medium;
+      display: block;
+      padding: 10px 12px;
+      text-decoration: none;
+      color: #666;
+      transition: color .15s;
+    }
+  
+  .Tab.active > a {
+        color: #222;
+      }
+  
+  .Tab:hover > a {
+        color: #222;
+      }
+  
+  
+  // First search section styling
+  .search_section {
+    border-radius: $universal_border_radius;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: block;
+      position: relative;
+      padding-top: 50px;
+      padding-bottom: 100px;
+      min-height:100%;
+      background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/atb_background_image.jpg);
+      background-size:cover;
+      height: auto;
+      margin-top: 80px;
+      margin-left: $universal_margin;
+      margin-right: $universal_margin;
+      margin-bottom: $universal_margin;
+   
+  }
+  
+  
+  .search_section_block {
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+  }
+  
+  .search_section h1 {
+      margin-right:auto;
+      margin-left:auto;
+      width: 40%;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+  }
+  
+  .search_section p {
+      margin-right:auto;
+      margin-left:auto;
+      width: 40%;
+      font-size: medium;
+      text-align: center;
+      color: white;
+  }
+  
+  // Form section styling
+  
+  .form_parent_section {
+      text-align: left;
+      border-radius: 10px;
+      background-color:rgba(255, 255, 255, 0.85);
+      font-size: medium;
+      width: 70%;
+      margin-right:auto;
+      margin-left:auto;
+      padding: 10px;
+  }
+  .form_section {
+    display: flex;
+  }
+  
+  .form_section > p
+  {
+    margin: 0px;
+    border-left: #163235;
+    border-width: 10px;
+  }
+  
+  .form_parent_section input[type=submit] {
+      @extend .button_parent;
+      text-align: left;
+      font-size: medium;
+      border-radius: 5px;
+      padding: 5px $universal_margin;
+      cursor: pointer;
+  }
+  
+  .form_parent_section input[type=text], input[type=date], select, textarea {
+      text-align: left;
+      display: block;
+      padding: 3px;
+      border: hidden;
+      resize: none;
+      font-family:'Poppins', FontAwesome;
+
+      background: transparent;
+      margin: 0px;
+    }
+    .form_parent_section input[type=text], input[type=date], select, textarea:focus-visible
+    {
+      outline: none;
+    }
+  
+    
+    input:invalid:focus-visible
+    {
+      outline: 2px solid red;
+      background-color: $invalid-input-background-color;
+    }
+  
+  .form_parent_section label {
+      font-weight: 500;
+      text-align: left;
+      color: black;
+      display: block;
+      padding: 2px;
+      margin: 0px;
+    }
+  
+      //  Used for Features Section Title
+      img + p
+      {
+        margin: 0px;
+        font-size: medium;
+      }
+  
+      .features_grid_container
+      {
+        display: grid;
+        column-gap: 60px;
+        grid-template-columns: auto auto auto auto;
+        padding: 10px;
+        margin-right: $universal_margin;
+        margin-left: $universal_margin;
+        margin-top: 100px;
+      }
+  
+      .features_grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: start;
+        border-radius: $universal_border_radius;
+        font-size: small;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+      }
+      
+      .recommended_destination_container
+      {
+        display: grid;
+        column-gap: 60px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 100px;
+      }
+  
+      .recommended_destination_grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: start;
+        border-radius: 15px;
+        font-size: small;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+      }
+  
+  
+    
+    // Recommended Destination section styling
+    .recommended_destination_section {
+      box-sizing: border-box;
+    }
+  
+    .recommended_destination_section .column {
+  
+      align-items: center;
+      justify-content: center;
+      float: left;
+      width: 31%;
+      padding: 0 10px;
+    }
+  
+  
+    //  Remove extra left and right margins, due to padding 
+   .recommended_destination_section .row {margin-left:-5px;}
+    
+    //  Clear floats after the columns 
+   .recommended_destination_section .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    
+  
+    .recommended_destination_section .card {
+      font-size: small;
+      padding: 16px;
+      text-align: left;
+      background-color: #ffffff;
+    }
+    
+    .recommended_destination_section > h2 {
+      text-align: center;
+    }
+  
+
+  
+    .rd_last_row {
+      display: flex;
+    }
+    
+  
+    .rd_right_col {
+      text-align: end;
+      width: 50%;
+    }
+  
+    .rd_left_col button 
+    {
+      padding-left: 0px;
+      border: none;
+      background-color: #ffffff00;
+    }
+  
+    .rd_left_col {
+      width: 50%;
+    }
+  
+    .rd_price {
+      font-size: medium;
+    }
+  .recommended_destination_section img {
+    width: 100%;
+    height: 100%;
+    border-radius: $universal_border_radius;
+  }
+  
+  .recommended_destination_section > figcaption + a
+  {
+    font-size: large;
+    font-weight: 600;
+    text-decoration: none;
+  } 
+  
+  .recommended_destination_section figure {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+    .rd_last_row img {
+  
+    width: 20px;
+    height: 20px;
+    }
+  
+    .rd_title a{
+      font-size: large;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  
+  // Happy Customers Section Styling
+  
+    .happy_customers_section > h2 {
+      text-align: center;
+    }
+  
+    .happy_customers_section .column {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      text-align: center;
+      width: 50%;
+      margin: 0px;
+      // padding: 0 10px;
+    }
+  
+    .happy_customers_section .row {margin: $universal_border_radius;}
+    
+    // Clear floats after the columns
+   .happy_customers_section .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    .happy_customers_section .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      display: flex;
+      font-size: small;
+      padding: 16px;
+      text-align: left;
+      background-color: #ffffff;
+      margin: 20px;
+    }
+  
+    @media screen and (max-width: 600px) {
+      .happy_customers_section .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  
+    .blockquote_column {
+      width: 30%;
+    }
+  
+  
+    .testimonial_column {
+      width: 70%;
+    }
+  
+    .testimonial_author_info {
+      display: flex;
+      width: 100%;
+    }
+  
+    .testimonial_author_info > img {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .testimonial_author_info .author_title {
+      margin-left: 5px;
+      font-style: normal;
+      font-size: medium;
+      line-height: 1em;
+      padding: 3px;
+      align-items: center;
+    justify-content: center;
+    }
+  
+    .author_title > p {
+      color: gray;
+      line-height: 0em;
+    }
+  
+    .happy_customers_section .column {
+      flex-wrap: wrap;
+      display: flexbox;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      text-align: center;
+      width: 50%;
+      margin: 0px;
+    }
+  
+  
+    .blogs_grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    }
+  
+
+  
+    // Blogs Section Styling
+  
+    .blogs_section > h2 {
+      text-align: center;
+    }
+    
+  
+    .blogs_section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      margin: 10px;
+    }
+   .section_title {
+    text-align: center;
+   }
+
+
+// SCSS Inheritance 2  .left h2 &.right h3 children of .blog_section_image_title_parent
+    .blogs_section .left h2{
+      @extend .blog_section_image_title_parent;
+      font-size: 1.5em;
+      margin-inline-start: 100px;
+      margin-inline-end: 100px;
+
+    }
+  
+    .blogs_section .left {
+      width: 100%;
+      grid-column: 1;
+      border-radius: $universal_border_radius;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 80px;
+      padding-bottom: 50px;
+      background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/blog_featured_image_1.jpeg);
+      background-size:cover;
+      height: auto;
+      margin: $universal_margin;
+      text-align: center;
+    }
+  
+    .blogs_section .right {
+      width: 100%;   
+    }
+  
+    .blogs_section .right h3 {
+      @extend .blog_section_image_title_parent;   
+      font-size: 1.17em;   
+      margin-inline-start: 50px;
+      margin-inline-end: 50px;
+    }
+  
+   .blogs_section .right .top {
+      grid-row: 2;
+      height:auto;
+      border-radius: $universal_border_radius;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 20px;
+      background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/blog_featured_image_2.jpg);
+      background-size:cover;
+      margin-top: $universal_margin;
+      margin-right: $universal_margin;
+      margin-left:$universal_margin;
+      margin-bottom: 20px;
+      text-align: center;
+      
+    }
+  
+    .blogs_section .right .bottom {
+      height:auto;
+      grid-row: 2;
+      border-radius: $universal_border_radius;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 20px;
+      background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/blog_featured_image_3.jpg);
+      background-size:cover;
+      margin-top: 10px;
+      margin-right: $universal_margin;
+      margin-left:$universal_margin;
+      margin-bottom:$universal_margin;
+      text-align: center;
+  
+    }
+  
+  

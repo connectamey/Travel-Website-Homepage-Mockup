@@ -1,0 +1,596 @@
+<!--
+    Assignment 4
+    Title: Add layout for Assignment 3 web page as per the mock image and convert all CSS to SCSS syntax.
+    Author: Amey Bansod
+    NEUID: 002743117
+    Description: Learn CSS positioning, Grid layout / Flexbox, SCSS features like variables, mixins, inheritance, loops, functions, math operations, etc.
+    Date Created: 10 / 03 / 2022
+    Last Modified: 10 / 04 / 2022
+
+    Page: Homepage
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <meta name="description" content= "Best Travel Agency in MA, USA from
+         last 10 years specializing in honeymoon, school trips, world tours."/>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <meta name="title" content= "Best Travel Agency in Massachusetts"/>
+        <link rel = "stylesheet" href="dist/main.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,
+        800,900">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <title>
+            Travelo
+        </title>
+    </head>
+
+<!--Main body-->
+<body>
+    <header>
+<!--Main Navigation Menu-->
+<section class = "header_section">
+<section class = "header_column left">
+    <a href = "#">
+<figure class = "header_logo">
+    <img src = "images/travelo_logo_184x54.png" alt="travelo logo">
+</figure></a>
+</section>
+<section class = "header_column middle">
+
+
+<nav class = "topnav">
+    <ul>
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Places</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+    </ul>
+</nav>
+
+</section>
+
+<section class = "header_column right">
+    <a href="#">
+        <button class="header_button">
+            Connect</button>
+        </a>
+    </section>
+</section>
+<!-- Search Section-->
+<div class="search_section">
+    <div class="serch_section_block">
+<br>
+    <h1>TRAVEL TO EXPLORE</h1>
+    <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. 
+        Sed Do Eiusmod Tempor incididunt ut Labore Et Dolore Magna
+         Aliqua. Ultricies Mi Eget Mauris</p>
+         
+<!--Form asking the user about the place user wants to go, checkin date & checkout date.
+    After clicking 'Explore Now' button, the user is redirected to '/form_submission_success.html page.
+    GET method is used to submit the data'
+    Validations: Checkin date should be greater than or equal to today's date. 
+    Let's assume today's date is 9/27/2022. Checkout date must be greater than or equal to checkin date.
+    For now, checkin date is set to static date: 9/27/2022.
+-->
+<br>
+<section class = "form_parent_section">
+<form method="get" action = "form_submission_success.html" class = "form_section">
+<p>
+        <label for = "place_to_travel_textBox">Where You Want to go</label>
+        <input type = "text"
+        class = "search_textbox"
+        name = "place_to_travel"
+        id = "place_to_travel_textBox"
+        placeholder="&#xF002; Search Your Location"
+        autocomplete="on"
+        autofocus
+        required
+        minlength="2"
+        maxlength="50">
+
+    </p>
+
+    <p>
+        <label for = "checkin_textBox">Check-in (Add date)</label>
+        <input type = "date"
+        name = "checkin"
+        id = "checkin_textBox"
+        placeholder="Add Date"
+        required
+        min = "2022-09-27"
+        >
+
+    </p>
+    <p>
+        <label for = "checkout-textBox">Check-out (Add date)</label>
+        <input type = "date"
+        name = "checkout"
+        id = "checkout-textBox"
+        placeholder="Add Date"
+        required
+        min = "2022-09-27">
+    </p>
+
+        <input type="submit" value="Explore Now">
+    
+    </form>
+</section>
+    </div>
+</div>
+</header>
+
+<!-- Features Section-->
+
+<section class="features_grid_container">
+<div class ="features_grid-item">
+    <img src="/images/feature_1.jpg">
+            <p>Get Best Prices</p>
+            <p>Pay through our application and save thousands and get amazing rewards.</p>
+</div>
+
+<div class ="features_grid-item">
+    <img src="/images/feature_2.jpg">
+            <p>Covid Safe</p>
+            <p>We have all the curated hotels that have all the precaution for a covid safe environment</p>
+</div>
+
+<div class ="features_grid-item">
+    <img src="/images/feature_3.jpg">
+    <p>Flexible Payment</p>
+    <p>Enjoy the flexible payment through our app and get rewards on any payment</p>
+</div>
+
+<div class ="features_grid-item">
+    <img src="/images/feature_4.jpg">
+    <p>Find The Best Near You</p>
+    <p>Find the best hotels and places to visit near you in a single click.</p>
+</div>
+
+
+</section>
+
+
+
+<!-- Recommended Destination Section-->
+
+<section class="recommended_destination_section">
+    <div class ="section_title"><br><br><h2>Recommended Destination</h2></div>
+
+<div class="Panel">
+    <nav>
+        <ul class="Tabs">
+            <li class="Tabs__tab active Tab"><a href="#">The Weekend Break</a></li>
+            <li class="Tabs__tab Tab"><a href="#">The Package Holiday</a></li>
+            <li class="Tabs__tab Tab"><a href="#">The Group Tour</a></li>
+            <li class="Tabs__tab Tab"><a href="#">Long Term Slow Travel</a></li>
+            <li class="Tabs__presentation-slider" role="presentation"></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+    <div class="row">
+        <div class="column">
+          <div class="card">
+        
+            <figure>
+        
+                <a href="#"> <img src = "/images/destination_1.jpg"
+                alt = "singapore"></a>
+                <figcaption>
+                    <div class = "rd_title">
+                    <a href = "#">            Singapore</a></div>
+                    <article>
+                        Singapore, officially the Republic of Singapore, is a sovereign island
+                         city-state in maritime Southeast.
+                        </article>
+                        <br>
+                         <section class="rd_last_row">
+                            <br>  
+                            <section class = "rd_left_col">
+                            
+                            <button>
+                                <img src="/images/destination_button_1.jpg">
+                            </button>
+                        
+        
+                        
+                            <button>
+                                <img src="/images/destination_button_2.jpg">
+                            </button>
+        
+                            
+                            <button>
+                                <img src="/images/destination_button_3.jpg">
+                            </button>
+                        <br>
+                        1000 Kms
+                        </section>
+                
+        <section class = "rd_right_col">
+            <div class = "rd_price">₹38,800</div>
+            Approx 2 night trip
+        </section>
+                    </section>
+                    
+        
+                </figcaption>
+        
+            </figure>
+        
+        </div>
+        </div>
+      
+        <div class="column">
+            <div class="card">
+          
+              <figure>
+          
+                  <a href="#"> <img src = "/images/destination_2.jpg"
+                  alt = "paris"></a>
+                  <figcaption>
+                      <div class = "rd_title">
+                      <a href = "#">Thailand</a></div>
+                      <article>
+                        Thailand is a Southeast Asian country. It's known for tropical
+                 beaches, opulent royal palaces
+                          </article>
+                          <br>
+                           <section class="rd_last_row">
+                              <br>  
+                              <section class = "rd_left_col">
+                              
+                              <button>
+                                  <img src="/images/destination_button_1.jpg">
+                              </button>
+                          
+          
+                          
+                              <button>
+                                  <img src="/images/destination_button_2.jpg">
+                              </button>
+          
+                              
+                              <button>
+                                  <img src="/images/destination_button_3.jpg">
+                              </button>
+                          <br>
+                          1000 Kms
+                          </section>
+                  
+          <section class = "rd_right_col">
+              <div class = "rd_price">₹38,800</div>
+              Approx 2 night trip
+          </section>
+                      </section>
+                      
+          
+                  </figcaption>
+          
+              </figure>
+          
+          </div>
+          </div>
+
+          <div class="column">
+            <div class="card">
+          
+              <figure>
+          
+                  <a href="#"> <img src = "/images/destination_3.jpg"
+                  alt = "paris"></a>
+                  <figcaption>
+                      <div class = "rd_title">
+                      <a href = "#">Paris</a></div>
+                      <article>
+                        Paris, France's capital, is a major European city and a global
+                        center for art, fashion, gastronomy and
+                          </article>
+                          <br>
+                           <section class="rd_last_row">
+                              <br>  
+                              <section class = "rd_left_col">
+                              
+                              <button>
+                                  <img src="/images/destination_button_1.jpg">
+                              </button>
+                          
+          
+                          
+                              <button>
+                                  <img src="/images/destination_button_2.jpg">
+                              </button>
+          
+                              
+                              <button>
+                                  <img src="/images/destination_button_3.jpg">
+                              </button>
+                          <br>
+                          1000 Kms
+                          </section>
+                  
+          <section class = "rd_right_col">
+              <div class = "rd_price">₹38,800</div>
+              Approx 2 night trip
+          </section>
+                      </section>
+                      
+          
+                  </figcaption>
+          
+              </figure>
+          
+          </div>
+          </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <div class="card">
+        
+            <figure>
+        
+                <a href="#"> <img src = "/images/destination_4.jpg"
+                alt = "bora bora"></a>
+                <figcaption>
+                    <div class = "rd_title">
+                    <a href = "#">New Zealand</a></div>
+                    <article>
+                        New Zealand is an island country in the southwestern 
+                        Pacific Ocean. It consists of two main
+                        </article>
+                        <br>
+                         <section class="rd_last_row">
+                            <br>  
+                            <section class = "rd_left_col">
+                            
+                            <button>
+                                <img src="/images/destination_button_1.jpg">
+                            </button>
+                        
+        
+                        
+                            <button>
+                                <img src="/images/destination_button_2.jpg">
+                            </button>
+        
+                            
+                            <button>
+                                <img src="/images/destination_button_3.jpg">
+                            </button>
+                        <br>
+                        1000 Kms
+                        </section>
+                
+        <section class = "rd_right_col">
+            <div class = "rd_price">₹38,800</div>
+            Approx 2 night trip
+        </section>
+                    </section>
+                    
+        
+                </figcaption>
+        
+            </figure>
+        
+        </div>
+        </div>
+      
+        <div class="column">
+            <div class="card">
+          
+              <figure>
+          
+                  <a href="#"> <img src = "/images/destination_5.jpg"
+                  alt = "bora bora"></a>
+                  <figcaption>
+                      <div class = "rd_title">
+                      <a href = "#">Bora Bora</a></div>
+                      <article>
+                        Bora Bora is a small South Pacific island northwest of
+                        Tahiti in French Polynesia Surrounded by sand
+                          </article>
+                          <br>
+                           <section class="rd_last_row">
+                              <br>  
+                              <section class = "rd_left_col">
+                              
+                              <button>
+                                  <img src="/images/destination_button_1.jpg">
+                              </button>
+                          
+          
+                          
+                              <button>
+                                  <img src="/images/destination_button_2.jpg">
+                              </button>
+          
+                              
+                              <button>
+                                  <img src="/images/destination_button_3.jpg">
+                              </button>
+                          <br>
+                          1000 Kms
+                          </section>
+                  
+          <section class = "rd_right_col">
+              <div class = "rd_price">₹38,800</div>
+              Approx 2 night trip
+          </section>
+                      </section>
+                      
+          
+                  </figcaption>
+          
+              </figure>
+          
+          </div>
+          </div>
+
+          <div class="column">
+            <div class="card">
+          
+              <figure>
+          
+                  <a href="#"> <img src = "/images/destination_6.jpg"
+                  alt = "london"></a>
+                  <figcaption>
+                      <div class = "rd_title">
+                      <a href = "#">London</a></div>
+                      <article>
+                        London, the capital of England and the United
+                         Kingdom, is a 21st-century city with history
+                          </article>
+                          <br>
+                           <section class="rd_last_row">
+                              <br>  
+                              <section class = "rd_left_col">
+                              
+                              <button>
+                                  <img src="/images/destination_button_1.jpg">
+                              </button>
+                          
+          
+                          
+                              <button>
+                                  <img src="/images/destination_button_2.jpg">
+                              </button>
+          
+                              
+                              <button>
+                                  <img src="/images/destination_button_3.jpg">
+                              </button>
+                          <br>
+                          1000 Kms
+                          </section>
+                  
+          <section class = "rd_right_col">
+              <div class = "rd_price">₹38,800</div>
+              Approx 2 night trip
+          </section>
+                      </section>
+                      
+          
+                  </figcaption>
+          
+              </figure>
+          
+          </div>
+          </div>
+
+
+      </div>
+
+</section>
+
+
+
+
+<div class ="section_title"> <br><br><h2>Blogs</h2></a></div>
+
+<!--Blogs Section-->
+
+<section class="blogs_section">
+   <div class = "left">
+    <h2><a href ="#">The Ultimate Guide To Climbing Mount Kilimanjaro</a></h2>
+</div>
+<div class="right">
+    <div class="top">
+        <h3><a href ="#">12 Things I'd Tell Any New Traveler</a></h2>
+    </div>
+    <div class="bottom">
+        <h3><a href ="#">The Ultimate Packing List For Female Travelers</a></h2>
+    </div>
+</div>
+</section>
+
+<!-- Testimonials Section-->
+
+<section class="happy_customers_section">
+    <div class ="section_title"><br><br><h2>Happy Customers</h2></div>
+<div class="row">
+    <div class="column">
+      <div class="card">
+        <div blockquote_column>
+            <img src="images/blockquote_image.jpg" alt="blockquote">
+        </div>
+        <cite class="testimonial_column">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+               in culpa qui officia deserunt mollit anim id est laborum. <br>
+               <br>
+               <div class = "testimonial_author_info">
+               <img src = "images/customer_image.jpg">
+               <div class = "author_title"> Shalini Singh<p>Project Manager flyhigh</p></div>
+
+            </div>
+            </cite>
+
+      </div>
+    </div>
+  
+    <div class="column">
+      <div class="card">
+        <div blockquote_column>
+            <img src="images/blockquote_image.jpg" alt="blockquote">
+        </div>
+        <cite class="testimonial_column">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+               in culpa qui officia deserunt mollit anim id est laborum.<br>
+               <br>
+               <div class = "testimonial_author_info">
+               <img src = "images/customer_image.jpg">
+               <div class = "author_title"> Shalini Singh<p>Project Manager flyhigh</p></div>
+
+            </div></cite>
+      </div>
+    </div>
+    
+  </div>
+
+</section>
+
+<!-- Footer Section-->
+<footer>
+<section class="footer_section">
+<div class="fleft">
+    <p>Copyright © 2022 Travelo. All rights reserved</p>
+</div>
+<div class="fmiddle">
+<nav class = "footernav">
+    <ul>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Places</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+    </ul>
+</nav>
+</div>
+<section class="fright">
+    <div class="socialiconcolumn">
+        <a href="#">
+        <img src = "images/facebook_logo.jpg"></a>
+    </div>
+    <div class="socialiconcolumn">
+        <a href="#"> <img src = "images/linkedin_logo.jpg"></a>
+    </div>
+    <div class="socialiconcolumn">
+        <a href="#"> <img src = "images/instagram_logo.jpg"></a>
+    </div>
+</section>  
+</section>
+</footer>
+</html>
